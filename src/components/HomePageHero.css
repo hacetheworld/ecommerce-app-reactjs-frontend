@@ -1,0 +1,58 @@
+/*
+*Hero
+*/
+.hero {
+  position: relative;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("https://hacetheworld.github.io/hero-blue-sky.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero__img {
+  width: 100%;
+  height: auto;
+}
+
+.hero__text {
+  width: 50%;
+  text-align: center;
+  font-family: "Roboto Mono", monospace;
+  text-transform: capitalize;
+  line-height: 1.2;
+}
+
+.hero__text h1 {
+  color: #ddd;
+
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.hero__text p {
+  color: #111;
+  font-size: 2rem;
+  font-weight: 300;
+  margin-top: 1rem;
+}
+.hero__text a.hero__link {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 400;
+  background-color: #f82c68;
+  padding: 1rem 1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  margin-top: 1rem;
+  transition: all 0.3s;
+}
+
+.hero__text a.hero__link:hover {
+  transform: translateY(0.2rem);
+}

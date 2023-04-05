@@ -1,0 +1,25 @@
+.user-profile {
+  padding-top: 5px;
+}
+
+.sidebar {
+  background-color: #f8f9fa;
+  height: calc(100vh - 50px);
+}
+
+.main-content {
+  height: calc(100vh - 50px);
+  overflow: auto;
+}
+
+.profile-info {
+  padding: 50px;
+}
+
+.active-link {
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: #007bff;
+}
