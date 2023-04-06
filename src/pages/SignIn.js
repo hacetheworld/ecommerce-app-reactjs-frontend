@@ -27,7 +27,7 @@ export const SignInPage = () => {
       return;
     }
     const response = await axios.post(
-      "https://ecommerce-rest-lprmkz9iw-hacetheworld.vercel.app/api/v1/signin",
+      "https://ecommerce-rest-api.vercel.app/api/v1/signin",
       user
     );
     console.log(response.data, "responsein signin");
