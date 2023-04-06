@@ -1,5 +1,18 @@
-.user-profile {
+.profile-image-wrapper {
   padding-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar {

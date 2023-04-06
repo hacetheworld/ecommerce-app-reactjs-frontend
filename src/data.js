@@ -1,6 +1,6 @@
 export const PRODUCTS = [
   {
-    id: 1,
+    _id: "6423eedf3231804610520cf2",
     title: "iPhone 9",
     description: "An apple mobile which is nothing like apple",
     price: 549,
@@ -15,11 +15,11 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/1/2.jpg",
       "https://i.dummyjson.com/data/products/1/3.jpg",
       "https://i.dummyjson.com/data/products/1/4.jpg",
-      "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
+    ],
   },
   {
-    id: 2,
+    _id: "6423eee03231804610520cf4",
     title: "iPhone X",
     description:
       "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
@@ -34,11 +34,11 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/2/1.jpg",
       "https://i.dummyjson.com/data/products/2/2.jpg",
       "https://i.dummyjson.com/data/products/2/3.jpg",
-      "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+    ],
   },
   {
-    id: 3,
+    _id: "6423eee03231804610520cf6",
     title: "Samsung Universe 9",
     description:
       "Samsung's new variant which goes beyond Galaxy to the Universe",
@@ -49,7 +49,7 @@ export const PRODUCTS = [
     brand: "Samsung",
     category: "smartphones",
     thumbnail: "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-    images: ["https://i.dummyjson.com/data/products/3/1.jpg"]
+    images: ["https://i.dummyjson.com/data/products/3/1.jpg"],
   },
   {
     id: 4,
@@ -67,8 +67,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/4/2.jpg",
       "https://i.dummyjson.com/data/products/4/3.jpg",
       "https://i.dummyjson.com/data/products/4/4.jpg",
-      "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
+    ],
   },
   {
     id: 5,
@@ -85,8 +85,8 @@ export const PRODUCTS = [
     images: [
       "https://i.dummyjson.com/data/products/5/1.jpg",
       "https://i.dummyjson.com/data/products/5/2.jpg",
-      "https://i.dummyjson.com/data/products/5/3.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/5/3.jpg",
+    ],
   },
   {
     id: 6,
@@ -104,8 +104,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/6/1.png",
       "https://i.dummyjson.com/data/products/6/2.jpg",
       "https://i.dummyjson.com/data/products/6/3.png",
-      "https://i.dummyjson.com/data/products/6/4.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/6/4.jpg",
+    ],
   },
   {
     id: 7,
@@ -123,8 +123,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/7/1.jpg",
       "https://i.dummyjson.com/data/products/7/2.jpg",
       "https://i.dummyjson.com/data/products/7/3.jpg",
-      "https://i.dummyjson.com/data/products/7/thumbnail.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
+    ],
   },
   {
     id: 8,
@@ -143,8 +143,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/8/2.jpg",
       "https://i.dummyjson.com/data/products/8/3.jpg",
       "https://i.dummyjson.com/data/products/8/4.jpg",
-      "https://i.dummyjson.com/data/products/8/thumbnail.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
+    ],
   },
   {
     id: 9,
@@ -163,8 +163,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/9/2.png",
       "https://i.dummyjson.com/data/products/9/3.png",
       "https://i.dummyjson.com/data/products/9/4.jpg",
-      "https://i.dummyjson.com/data/products/9/thumbnail.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
+    ],
   },
   {
     id: 10,
@@ -182,8 +182,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/10/1.jpg",
       "https://i.dummyjson.com/data/products/10/2.jpg",
       "https://i.dummyjson.com/data/products/10/3.jpg",
-      "https://i.dummyjson.com/data/products/10/thumbnail.jpeg"
-    ]
+      "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
+    ],
   },
   {
     id: 11,
@@ -201,8 +201,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/11/1.jpg",
       "https://i.dummyjson.com/data/products/11/2.jpg",
       "https://i.dummyjson.com/data/products/11/3.jpg",
-      "https://i.dummyjson.com/data/products/11/thumbnail.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/11/thumbnail.jpg",
+    ],
   },
   {
     id: 12,
@@ -220,8 +220,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/12/2.jpg",
       "https://i.dummyjson.com/data/products/12/3.png",
       "https://i.dummyjson.com/data/products/12/4.jpg",
-      "https://i.dummyjson.com/data/products/12/thumbnail.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/12/thumbnail.jpg",
+    ],
   },
   {
     id: 13,
@@ -240,8 +240,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/13/2.png",
       "https://i.dummyjson.com/data/products/13/3.jpg",
       "https://i.dummyjson.com/data/products/13/4.jpg",
-      "https://i.dummyjson.com/data/products/13/thumbnail.webp"
-    ]
+      "https://i.dummyjson.com/data/products/13/thumbnail.webp",
+    ],
   },
   {
     id: 14,
@@ -259,8 +259,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/14/1.jpg",
       "https://i.dummyjson.com/data/products/14/2.jpg",
       "https://i.dummyjson.com/data/products/14/3.jpg",
-      "https://i.dummyjson.com/data/products/14/thumbnail.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/14/thumbnail.jpg",
+    ],
   },
   {
     id: 15,
@@ -279,8 +279,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/15/2.jpg",
       "https://i.dummyjson.com/data/products/15/3.jpg",
       "https://i.dummyjson.com/data/products/15/4.jpg",
-      "https://i.dummyjson.com/data/products/15/thumbnail.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/15/thumbnail.jpg",
+    ],
   },
   {
     id: 16,
@@ -299,8 +299,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/16/2.webp",
       "https://i.dummyjson.com/data/products/16/3.jpg",
       "https://i.dummyjson.com/data/products/16/4.jpg",
-      "https://i.dummyjson.com/data/products/16/thumbnail.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/16/thumbnail.jpg",
+    ],
   },
   {
     id: 17,
@@ -318,8 +318,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/17/1.jpg",
       "https://i.dummyjson.com/data/products/17/2.jpg",
       "https://i.dummyjson.com/data/products/17/3.jpg",
-      "https://i.dummyjson.com/data/products/17/thumbnail.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/17/thumbnail.jpg",
+    ],
   },
   {
     id: 18,
@@ -338,8 +338,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/18/2.jpg",
       "https://i.dummyjson.com/data/products/18/3.jpg",
       "https://i.dummyjson.com/data/products/18/4.jpg",
-      "https://i.dummyjson.com/data/products/18/thumbnail.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/18/thumbnail.jpg",
+    ],
   },
   {
     id: 19,
@@ -357,8 +357,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/19/1.jpg",
       "https://i.dummyjson.com/data/products/19/2.jpg",
       "https://i.dummyjson.com/data/products/19/3.png",
-      "https://i.dummyjson.com/data/products/19/thumbnail.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/19/thumbnail.jpg",
+    ],
   },
   {
     id: 20,
@@ -377,8 +377,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/20/2.jpg",
       "https://i.dummyjson.com/data/products/20/3.jpg",
       "https://i.dummyjson.com/data/products/20/4.jpg",
-      "https://i.dummyjson.com/data/products/20/thumbnail.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/20/thumbnail.jpg",
+    ],
   },
   {
     id: 21,
@@ -394,8 +394,8 @@ export const PRODUCTS = [
     images: [
       "https://i.dummyjson.com/data/products/21/1.png",
       "https://i.dummyjson.com/data/products/21/2.jpg",
-      "https://i.dummyjson.com/data/products/21/3.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/21/3.jpg",
+    ],
   },
   {
     id: 22,
@@ -411,8 +411,8 @@ export const PRODUCTS = [
     images: [
       "https://i.dummyjson.com/data/products/22/1.jpg",
       "https://i.dummyjson.com/data/products/22/2.jpg",
-      "https://i.dummyjson.com/data/products/22/3.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/22/3.jpg",
+    ],
   },
   {
     id: 23,
@@ -431,8 +431,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/23/2.jpg",
       "https://i.dummyjson.com/data/products/23/3.jpg",
       "https://i.dummyjson.com/data/products/23/4.jpg",
-      "https://i.dummyjson.com/data/products/23/thumbnail.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/23/thumbnail.jpg",
+    ],
   },
   {
     id: 24,
@@ -451,8 +451,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/24/2.jpg",
       "https://i.dummyjson.com/data/products/24/3.jpg",
       "https://i.dummyjson.com/data/products/24/4.jpg",
-      "https://i.dummyjson.com/data/products/24/thumbnail.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/24/thumbnail.jpg",
+    ],
   },
   {
     id: 25,
@@ -470,8 +470,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/25/2.jpg",
       "https://i.dummyjson.com/data/products/25/3.png",
       "https://i.dummyjson.com/data/products/25/4.jpg",
-      "https://i.dummyjson.com/data/products/25/thumbnail.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/25/thumbnail.jpg",
+    ],
   },
   {
     id: 26,
@@ -491,8 +491,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/26/3.jpg",
       "https://i.dummyjson.com/data/products/26/4.jpg",
       "https://i.dummyjson.com/data/products/26/5.jpg",
-      "https://i.dummyjson.com/data/products/26/thumbnail.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/26/thumbnail.jpg",
+    ],
   },
   {
     id: 27,
@@ -511,8 +511,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/27/2.jpg",
       "https://i.dummyjson.com/data/products/27/3.jpg",
       "https://i.dummyjson.com/data/products/27/4.jpg",
-      "https://i.dummyjson.com/data/products/27/thumbnail.webp"
-    ]
+      "https://i.dummyjson.com/data/products/27/thumbnail.webp",
+    ],
   },
   {
     id: 28,
@@ -531,8 +531,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/28/2.jpg",
       "https://i.dummyjson.com/data/products/28/3.png",
       "https://i.dummyjson.com/data/products/28/4.jpg",
-      "https://i.dummyjson.com/data/products/28/thumbnail.jpg"
-    ]
+      "https://i.dummyjson.com/data/products/28/thumbnail.jpg",
+    ],
   },
   {
     id: 29,
@@ -551,8 +551,8 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/29/2.jpg",
       "https://i.dummyjson.com/data/products/29/3.webp",
       "https://i.dummyjson.com/data/products/29/4.webp",
-      "https://i.dummyjson.com/data/products/29/thumbnail.webp"
-    ]
+      "https://i.dummyjson.com/data/products/29/thumbnail.webp",
+    ],
   },
   {
     id: 30,
@@ -570,7 +570,7 @@ export const PRODUCTS = [
       "https://i.dummyjson.com/data/products/30/1.jpg",
       "https://i.dummyjson.com/data/products/30/2.jpg",
       "https://i.dummyjson.com/data/products/30/3.jpg",
-      "https://i.dummyjson.com/data/products/30/thumbnail.jpg"
-    ]
-  }
+      "https://i.dummyjson.com/data/products/30/thumbnail.jpg",
+    ],
+  },
 ];
