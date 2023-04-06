@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./ProfilePage.css";
 import { useSelector } from "react-redux";
 import { useAuthRedirect } from "../isLoggedIn";
+
 export const UserProfile = (props) => {
   // Protected route is loogedin
   const userState = useSelector((state) => state.user.user);
@@ -18,12 +19,15 @@ export const UserProfile = (props) => {
   // }
   const { name, email, userImage } = obj;
   console.log(userState, "userStateiprofile");
+
   return (
     <div className="user-profile">
       <Container fluid>
         <Row>
           <Col sm={3} className="sidebar">
-            <Image src={userImage} roundedCircle />
+            <div className="profile-image-wrapper">
+              <Image src={userImage} roundedCircle className="profile-image" />
+            </div>
             <Nav className="flex-column mt-3">
               <Link to="/" className="nav-link" activeClassName="active-link">
                 Home
