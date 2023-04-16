@@ -1,12 +1,11 @@
 import React from "react";
-import { Navbar, Nav, Container, Row, Col, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./ProfilePage.css";
 import { useSelector } from "react-redux";
-import { useAuthRedirect } from "../isLoggedIn";
-
+import useRequireLogin from "../customHooks/notUserLoggedIn";
 export const UserProfile = (props) => {
   // Protected route is loogedin
+  useRequireLogin();
   const userState = useSelector((state) => state.user.user);
   const obj = { name: "", email: "", userImage: "" };
   if (userState) {
@@ -21,37 +20,41 @@ export const UserProfile = (props) => {
   console.log(userState, "userStateiprofile");
 
   return (
-    <div className="user-profile">
-      <Container fluid>
-        <Row>
-          <Col sm={3} className="sidebar">
-            <div className="profile-image-wrapper">
-              <Image src={userImage} roundedCircle className="profile-image" />
-            </div>
-            <Nav className="flex-column mt-3">
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-sm-3 sidebar">
+          <div className="profile-image-wrapper">
+            <img src={userImage} className="rounded-circle profile-image" />
+          </div>
+          <ul className="nav flex-column mt-3">
+            <li className="nav-item">
               <Link to="/" className="nav-link" activeClassName="active-link">
                 Home
               </Link>
+            </li>
+            <li className="nav-item">
               <Link to="/profile" className="nav-link">
                 Profile
               </Link>
+            </li>
+            <li className="nav-item">
               <Link to="/orders" className="nav-link">
                 Orders
               </Link>
-            </Nav>
-          </Col>
-          <Col sm={9} className="main-content">
-            <div className="profile-info">
-              {window.location.pathname === "/profile" && (
-                <>
-                  <h1>Welcome to your dashboard, {name}!</h1>
-                  <p>Email: {email}</p>
-                </>
-              )}
-            </div>
-          </Col>
-        </Row>
-      </Container>
+            </li>
+          </ul>
+        </div>
+        <div className="col-sm-9 main-content">
+          <div className="profile-info">
+            {window.location.pathname === "/profile" && (
+              <>
+                <h1>Welcome to your dashboard, {name}!</h1>
+                <p>Email: {email}</p>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

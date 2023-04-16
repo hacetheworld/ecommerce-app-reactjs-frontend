@@ -1,2 +1,2 @@
 # ecommerce-app-reactjs-frontend
-Created with CodeSandbox
+Created with CodeSandbox and updated

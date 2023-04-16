@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export const ThankYou = () => {
@@ -9,7 +9,7 @@ export const ThankYou = () => {
         <Col className="text-center">
           <h1>Thank You For Shopping</h1>
           <p>Please Browse More Product</p>
-          <Link to="/" variant="primary">
+          <Link to="/" className="btn btn-primary">
             Go to Homepage
           </Link>
         </Col>

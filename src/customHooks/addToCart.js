@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import axios from "axios";
-
+import { toast } from "react-toastify";
 export const useCart = () => {
   const dispatch = useDispatch();
   const addToCart = async (productId, cartQuantity) => {
@@ -28,6 +28,13 @@ export const useCart = () => {
           totalPrice: calculateTotal(response.data)
         }
       });
+      if (cartQuantity === -1) {
+        toast.warning("Product qunatity decresed from cart!", {
+          autoClose: 2000
+        });
+      } else {
+        toast.success("Product added to cart!", { autoClose: 2000 });
+      }
     }
   };
 

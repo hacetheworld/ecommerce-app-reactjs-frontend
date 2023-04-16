@@ -1,40 +1,70 @@
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const CheckoutComp = () => {
   const navigate = useNavigate();
-  const cartState = useSelector((state) => state.cart);
-  const cart = cartState.cart;
-  const totalPrice = cartState.totalPrice;
+  const cart = useSelector((state) => state.cart.cartItems);
+  const totalPrice = useSelector((state) => state.cart.totalPrice);
+  // console.log(cart, "cart");
   const quentity = cart.length;
-  console.log(cart, totalPrice, "orderescomponent");
+  // console.log(cart, totalPrice, "orderescomponent");
   const dispatch = useDispatch();
 
+  const token = localStorage.getItem("ecomAppToken");
+  const loggedIn = token ? true : false;
+
+  const handleLogin = () => {
+    navigate("/signin");
+  };
   const submitOrder = async (e) => {
     e.preventDefault();
+    const shippingAddress = e.target.elements.shippingAddress.value;
     if (quentity <= 0) {
-      alert("please add product first");
+      alert("please add product first.");
+
       return;
     }
-    const shippingAddress = e.target.elements;
-    const token = localStorage.getItem("ecomAppToken");
+    if (shippingAddress === "") {
+      alert("add Shipping Address please.");
+      return;
+    }
+    const orderItems = cart.map((productItem) => {
+      return {
+        productId: productItem.product._id,
+        quantity: productItem.quantity
+      };
+    });
+
     const config = {
       headers: {
         "Content-Type": "application/json",
         "x-access-token": `${token}`
       }
     };
+
+    const orderData = {
+      shippingAddress,
+      totalPrice,
+      orderItems
+    };
+
     const response = await axios.post(
       "https://ecommerce-rest-api.vercel.app/api/v1/order",
-      { shippingAddress: shippingAddress[0].value },
+      orderData,
       config
     );
-    if (response && response.data.message) {
-      dispatch({ type: "GET_CART", payload: { cart: [], totalPrice: 0 } });
+    if (response && response.data.order) {
+      console.log(response.data.order, "order");
+      dispatch({ type: "EMPTY_CART", payload: {} });
+      toast.success("Order Placed Successfully ", { autoClose: 2000 });
       navigate("/thankYou");
+    } else {
+      console.log(response.data.message, " order message");
     }
   };
+
   return (
     <div className="container mt-4 mb-4">
       <main>
@@ -76,13 +106,11 @@ export const CheckoutComp = () => {
             <form
               onSubmit={submitOrder}
               className="needs-validation"
-              novalidate
+              noValidate
             >
               <div className="row g-3">
                 <div className="col-12">
-                  <label for="address" className="form-label">
-                    Shipping address
-                  </label>
+                  <label className="form-label">Shipping address</label>
                   <input
                     type="text"
                     name="shippingAddress"
@@ -98,10 +126,19 @@ export const CheckoutComp = () => {
               </div>
 
               <hr className="my-4" />
-
-              <button className="w-100 btn btn-primary btn-lg" type="submit">
-                Place Order
-              </button>
+              {loggedIn ? (
+                <button className="w-100 btn btn-primary btn-lg" type="submit">
+                  Place Order
+                </button>
+              ) : (
+                <button
+                  className="w-100 btn btn-warning btn-lg "
+                  type="submit"
+                  onClick={handleLogin}
+                >
+                  Please log in to place your order.
+                </button>
+              )}
             </form>
           </div>
         </div>

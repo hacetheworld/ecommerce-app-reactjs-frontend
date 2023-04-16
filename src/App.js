@@ -11,9 +11,13 @@ import { ContactPage } from "./pages/ContactUsPage";
 import { UserProfile } from "./pages/ProfilePage";
 import { Cart } from "./pages/Cart";
 import { NotFound } from "./pages/404";
+import { ToastContainer } from "react-toastify";
+
 import { CheckoutComp } from "./components/Checkout";
 import { ThankYou } from "./pages/thankYou";
+
 import { useDispatch, useSelector } from "react-redux";
+import { OrdersPage } from "./pages/order/order";
 export default function App() {
   const dispatch = useDispatch();
   const userState = useSelector((state) => state.user.user);
@@ -25,6 +29,7 @@ export default function App() {
   console.log(userState, "userState");
   return (
     <>
+      <ToastContainer />
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -37,6 +42,7 @@ export default function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/profile" element={<UserProfile />} />
         <Route path="/checkout" element={<CheckoutComp />} />
+        <Route path="/orders" element={<OrdersPage />} />
         <Route path="/thankYou" element={<ThankYou />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

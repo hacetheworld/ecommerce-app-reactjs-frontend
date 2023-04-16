@@ -2,8 +2,9 @@ import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./productCard.css";
-import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const ProductCard = ({ product }) => {
   const {
@@ -19,33 +20,9 @@ export const ProductCard = ({ product }) => {
   // console.log(id, "productCard");
   const dispatch = useDispatch();
 
-  const addToCart = async (productId, cartQuantity) => {
-    const token = localStorage.getItem("ecomAppToken");
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        "x-access-token": `${token}`
-      }
-    };
-    console.log(productId, cartQuantity);
-    const response = await axios.post(
-      "https://ecommerce-rest-api.vercel.app/api/v1/cart",
-      {
-        productId,
-        cartQuantity
-      },
-      config
-    );
-    console.log(response.data, "response.data+response.id");
-    if (response && response.data) {
-      dispatch({
-        type: "GET_CART",
-        payload: {
-          cart: response.data,
-          totalPrice: 0
-        }
-      });
-    }
+  const handleAddToCart = () => {
+    dispatch({ type: "ADD_TO_CART", payload: { product, quantity: 1 } });
+    toast.success("Product added to cart!", { autoClose: 2000 });
   };
 
   return (
@@ -74,7 +51,7 @@ export const ProductCard = ({ product }) => {
         </div>
       </Card.Body>
       <div className="mt-5 d-flex justify-content-between ">
-        <Button variant="warning" onClick={() => addToCart(id, 1)}>
+        <Button variant="warning" onClick={handleAddToCart}>
           Add to Cart
         </Button>
         <Link to={`/product/${id}`}>

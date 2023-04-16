@@ -1,38 +1,13 @@
-.profile-image-wrapper {
-  padding-top: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
+.sidebar {
+  background-color: #f5f5f5;
+  padding: 20px;
 }
 
 .profile-image {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid #fff;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar {
-  background-color: #f8f9fa;
-  height: calc(100vh - 50px);
-}
-
-.main-content {
-  height: calc(100vh - 50px);
-  overflow: auto;
+  width: 150px;
+  height: 150px;
 }
 
 .profile-info {
-  padding: 50px;
-}
-
-.active-link {
-  font-weight: bold;
-}
-
-.nav-link:hover {
-  color: #007bff;
+  padding: 20px;
 }

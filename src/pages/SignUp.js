@@ -1,32 +1,28 @@
 import { useState, useEffect } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Form, Button, Alert } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import "./SignUp.css";
 import axios from "axios";
 import { useAuthRedirect } from "../isLoggedIn";
-
 import { useDispatch, useSelector } from "react-redux";
+
 export const SignUpPage = () => {
-  // Check for islogin and if lo
   useAuthRedirect();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userImage, setUserImage] = useState("");
+  const [error, setError] = useState("");
 
-  // From redux
   const userState = useSelector((state) => state.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const changeImageHandler = (e) => {
     const file = e.target.files[0];
-    // const reader = new FileReader();
-    // reader.readAsDataURL(file);
-    // reader.onloadend = () => {
     setUserImage(file);
-    // };
   };
+
   const getData = async (e) => {
     e.preventDefault();
     const myForm = new FormData();
@@ -34,29 +30,43 @@ export const SignUpPage = () => {
     myForm.append("email", email);
     myForm.append("password", password);
     myForm.append("userImage", userImage);
-    // console.log(myForm);
-    // const user = { name, email, password, userImage };
-    const response = await axios.post(
-      "https://ecommerce-rest-api.vercel.app/api/v1/signup",
-      myForm,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data"
+
+    try {
+      const response = await axios.post(
+        "https://ecommerce-rest-api.vercel.app/api/v1/signup",
+        myForm,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
         }
+      );
+      console.log(response.data);
+      if (response.data && response.data.newUser) {
+        localStorage.setItem("ecomAppToken", response.data.token);
+        localStorage.setItem("ecomUser", JSON.stringify(response.data.newUser));
+        dispatch({ type: "LOGIN_LOGOUT", payload: response.data.newUser });
+        navigate("/");
+      } else if (response.data && response.data.message) {
+        setError(response.data.message);
+        setTimeout(() => {
+          setError("");
+        }, 2000);
       }
-    );
-    console.log(response.data);
-    if (response.data && response.data.newUser) {
-      localStorage.setItem("ecomAppToken", response.data.token);
-      localStorage.setItem("ecomUser", JSON.stringify(response.data.newUser));
-      dispatch({ type: "LOGIN_LOGOUT", payload: response.data.newUser });
-      navigate("/");
+    } catch (error) {
+      console.log(error);
+      setError("An error occurred while signing up. Please try again later.");
     }
   };
 
   return (
     <Container className="mb-2 mt-5">
       <h1 className="text-center mb-5">SignUp</h1>
+      {error && (
+        <div className="alert alert-danger" role="alert">
+          {error}
+        </div>
+      )}
       <div className="signup-container">
         <form
           onSubmit={getData}
@@ -85,7 +95,6 @@ export const SignUpPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <br />
-
           <input
             type="file"
             id="userImage"

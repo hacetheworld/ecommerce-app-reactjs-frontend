@@ -1,22 +1,30 @@
 import React from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
+import { toast } from "react-toastify";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useCart } from "../customHooks/addToCart";
-
+import { useDispatch } from "react-redux";
 export const SingleProductPage = () => {
   const { productId } = useParams();
-  console.log(productId);
+  // console.log(productId);
   const [product, setProduct] = useState({});
-  const { addToCart } = useCart();
+  const dispatch = useDispatch();
+
   const getCurrentProduct = async () => {
     const response = await axios.get(
       `https://ecommerce-rest-api.vercel.app/api/v1/product/${productId}`
     );
-
     setProduct(response.data);
+  };
+
+  const addToCart = () => {
+    if (product) {
+      dispatch({ type: "ADD_TO_CART", payload: { product, quantity: 1 } });
+      toast.success("Product added to cart!", { autoClose: 2000 });
+    }
   };
 
   useEffect(() => {
@@ -103,10 +111,7 @@ export const SingleProductPage = () => {
                 <span className="ml-2">{rating && rating.toFixed(2)}</span>
               </div>
             </div>
-            <button
-              className="btn btn-primary"
-              onClick={() => addToCart(productId, 1)}
-            >
+            <button className="btn btn-primary" onClick={addToCart}>
               Add to Cart
             </button>
           </Col>

@@ -67,11 +67,7 @@ export const Header = () => {
                   Checkout
                 </Link>
               </div> */}
-              <div className="nav-item">
-                <Link className="nav-link" to="/profile" onClick={toggleMenu}>
-                  Profile
-                </Link>
-              </div>
+              
               {!user ? (
                 <>
                   <div className="nav-item">
@@ -94,6 +90,12 @@ export const Header = () => {
                   </div>
                 </>
               ) : (
+                <>
+                <div className="nav-item">
+                <Link className="nav-link" to="/profile" onClick={toggleMenu}>
+                  Profile
+                </Link>
+              </div>
                 <div className="nav-item">
                   <Link
                     className="nav-link"
@@ -108,6 +110,7 @@ export const Header = () => {
                     Logout
                   </Link>
                 </div>
+                </>
               )}
 
               <div className="nav-item">
