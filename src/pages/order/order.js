@@ -1,24 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
 
 export function OrdersPage() {
-  const [orders, setOrders] = useState([
-    {
-      _id: "1",
-      customer: { email: "johndoe@example.com" },
-      products: [
-        { _id: "1", product: { name: "Product A" }, quantity: 2 },
-        { _id: "2", product: { name: "Product B" }, quantity: 1 }
-      ],
-      status: "Completed",
-      shippingAddress: "123 Main St, Anytown, USA",
-      paymentMethod: "Credit Card",
-      paymentStatus: "Paid",
-      totalAmount: 123.45,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }
-  ]);
+  const [orders, setOrders] = useState([]);
+  useEffect(() => {
+    const token = localStorage.getItem("ecomAppToken");
+    const config = {
+      headers: {
+        "x-access-token": `${token}`
+      }
+    };
+    fetch("https://ecommerce-rest-api.vercel.app/api/v1/order", config)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        if (data) {
+          console.log(data, "data");
+          setOrders(data);
+        } else {
+          throw new Error(data.message);
+        }
+      })
+      .catch((error) => console.log(error));
+  }, []);
+  console.log(orders, "orders");
 
   return (
     <div className="container">
@@ -27,12 +32,9 @@ export function OrdersPage() {
         <thead>
           <tr>
             <th>Order ID</th>
-            <th>Customer</th>
             <th>Products</th>
             <th>Status</th>
             <th>Shipping Address</th>
-            <th>Payment Method</th>
-            <th>Payment Status</th>
             <th>Total Amount</th>
             <th>Created At</th>
             <th>Updated At</th>
@@ -42,21 +44,18 @@ export function OrdersPage() {
           {orders.map((order) => (
             <tr key={order._id}>
               <td>{order._id}</td>
-              <td>{order.customer.email}</td>
               <td>
                 <ul>
-                  {order.products.map((product) => (
-                    <li key={product._id}>
-                      {product.product.name} ({product.quantity})
+                  {order.orderItems.map((product) => (
+                    <li key={product.product._id}>
+                      {product.product.title} ({product.quantity})
                     </li>
                   ))}
                 </ul>
               </td>
               <td>{order.status}</td>
               <td>{order.shippingAddress}</td>
-              <td>{order.paymentMethod}</td>
-              <td>{order.paymentStatus}</td>
-              <td>${order.totalAmount.toFixed(2)}</td>
+              <td>${order.totalPrice.toFixed(2)}</td>
               <td>{new Date(order.createdAt).toLocaleString()}</td>
               <td>{new Date(order.updatedAt).toLocaleString()}</td>
             </tr>

@@ -4,7 +4,7 @@ export const HomePageHero = () => {
   return (
     <div className="hero">
       <div className="hero__text">
-        <p>Buy anything here</p>
+        <p>Buy Best Mobile Here at the lowest Cost.</p>
         <Link to="/shop" className="hero__link">
           Shop Now
         </Link>
